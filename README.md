@@ -21,14 +21,15 @@ So this is what I did:
  * Put it in this github repository.
 
 ## Installation instructions
+On your server there is a directory `modules_v4`.
+Create a subdirectory `wt-datafix-add-married-names` in there.
 
-You can download the source files of this repository as a zip, and unzip them onto your server (without this README.txt)
+Download the source files of this repository as a zip, and unzip them onto your server into the directory you just created.
 
-The directory structure in this repository is a mirror of the structure as found on a server running webtrees.
-Make sure the files are uploaded in this structure:
+The end result looks like this:
 
  * `modules_v4 <dir>`
-   * `FixMissingMarriedNames <dir>`
+   * `wt-datafix-add-married-names <dir>`
      * `FixMissingMarriedNames.php`
      * `module.php`
 
