@@ -19,6 +19,7 @@ declare(strict_types=1);
 
 namespace BertKoor\WtModule\FixMissingMarriedNames;
 
+use Fisharebest\Webtrees\DB;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
 use Fisharebest\Webtrees\Registry;
 use Fisharebest\Webtrees\GedcomRecord;
@@ -167,6 +168,8 @@ class FixMissingMarriedNames extends AbstractModule implements ModuleCustomInter
         // No DB querying possible?  Select all females.
         return $this->individualsToFixQuery($tree, $params)
             ->where('i_sex', '=', 'F')
+            ->whereRaw('(select count(*) from ' . DB::prefix('link') . " where l_file = i_file and l_to = i_id and l_type = 'WIFE')" .
+                    ' > (select count(*) from ' . DB::prefix('name') . " where n_file = i_file and n_id = i_id and n_type = '_MARNM')")
             ->pluck('i_id');
     }
 

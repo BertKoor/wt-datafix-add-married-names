@@ -21,9 +21,10 @@ So this is what I did:
  * Put it in this github repository.
 
 ## Release notes
-| Version | Released    | Notes                             |
-|---------|-------------|-----------------------------------|
-| 1.0.0   | 26 NOV 2025 | Initial release (without version) |
+| Version | Released    | Notes                                                      |
+|---------|-------------|------------------------------------------------------------|
+| 1.0.0   | 26 NOV 2025 | Initial release (without version)                          |
+| 1.1.0   | 29 SEP 2026 | Only select records with more marriages than married names |
 
 ## Installation instructions
 On your server there is a directory `modules_v4`.
@@ -39,6 +40,40 @@ The end result looks like this:
      * `module.php`
 
 The files `composer.json`, `latest-version.txt` and this `README.md` are not required to be uploaded to your server, but won't do any harm.
+
+## Usage
+After installation it can be run from the webtrees Control Panel:
+* Select a family tree
+* Under `Family tree` click on the link `Data fixes`
+* Select the datafix `Add married names` and click `Next`
+* Click the `Search` button for a preview of the affected records
+
+The module will do a course selection of all females which have less married names than families in which they are the wife.
+
+Given for example we had already recorded the couple John F. Kennedy and his wife Jackie. Her name details:
+```
+1 NAME Jacqueline /Bouvier/
+2 TYPE BIRTH
+1 NAME Jackie /Kennedy/
+2 TYPE MARRIED
+```
+
+When the marriage with her second husband Aristoteles Onassis is recorded but not yet his name, the datafix will add a line to the first name:
+```
+2 _MARNM Jacqueline /Onassis/
+```
+
+Note that the custom (non-standard) GEDCOM tag `_MARNM` is used, as was usual for the old version of webtrees.
+By running the datafix `Convert INDI:NAME:_XXX tags to GEDCOM 5.5.1` this can be converted to:
+
+```
+1 NAME Jacqueline /Bouvier/
+2 TYPE BIRTH
+1 NAME Jackie /Kennedy/
+2 TYPE MARRIED
+1 NAME Jacqueline /Onassis/
+2 TYPE MARRIED
+```
 
 ## License
 ````
