@@ -1,0 +1,26 @@
+{
+  "name": "bertkoor/wt-datafix-add-married-names",
+  "type": "webtrees-module",
+  "description": "You can make it easier to search for married women by recording their married name. However not all women take their husband’s surname, so beware of introducing incorrect information into your database.",
+  "homepage": "https://github.com/BertKoor/wt-datafix-add-married-names",
+  "support": {
+    "issues": "https://github.com/BertKoor/wt-datafix-add-married-names/issues"
+  },
+  "authors": [
+    {
+      "name": "Bert Koorengevel",
+      "homepage": "https://github.com/BertKoor",
+      "role": "Developer"
+    }
+  ],
+  "license": [
+    "GPL-3.0-or-later"
+  ],
+  "require": {
+    "fisharebest/webtrees": "~2.1"
+  },
+  "conflict": {
+    "fisharebest/webtrees": "<2.1"
+  },
+  "disclaimer": "This project does NOT use PHP Composer. This file is used only for convenience, to hold metadata about the project."
+}
