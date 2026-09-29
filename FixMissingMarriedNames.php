@@ -51,6 +51,10 @@ class FixMissingMarriedNames extends AbstractModule implements ModuleCustomInter
     use ModuleCustomTrait;
     use ModuleDataFixTrait;
 
+    const GITHUB_USER = 'bertkoor';
+    const GITHUB_REPO = 'wt-datafix-add-married-names';
+    const THIS_VERSION = '1.1.0';
+
     /** @var DataFixService */
     private $data_fix_service;
 
@@ -85,6 +89,46 @@ class FixMissingMarriedNames extends AbstractModule implements ModuleCustomInter
         /* I18N: Description of a “Data fix” module */
         $i18n_descr = I18N::translate('You can make it easier to search for married women by recording their married name. However not all women take their husband’s surname, so beware of introducing incorrect information into your database.');
         return $i18n_descr . '<p>This data-fix is full of assumptions - most of which are wrong.';
+    }
+
+    /**
+     * The person or organisation who created this module.
+     *
+     * @return string
+     */
+    public function customModuleAuthorName(): string
+    {
+        return self::GITHUB_USER;
+    }
+
+    /**
+     * The version of this module.
+     *
+     * @return string
+     */
+    public function customModuleVersion(): string
+    {
+        return self::THIS_VERSION;
+    }
+
+    /**
+     * A URL that will provide the latest stable version of this module.
+     *
+     * @return string
+     */
+    public function customModuleLatestVersionUrl(): string
+    {
+        return 'https://raw.githubusercontent.com/' . self::GITHUB_USER . '/' . self::GITHUB_REPO . '/main/latest-version.txt';
+    }
+
+    /**
+     * Where to get support for this module.  Perhaps a github repository?
+     *
+     * @return string
+     */
+    public function customModuleSupportUrl(): string
+    {
+        return 'https://github.com/' . self::GITHUB_USER . '/' . self::GITHUB_REPO;
     }
 
     /**

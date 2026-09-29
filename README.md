@@ -20,6 +20,11 @@ So this is what I did:
  * Check it executes on my local webtrees v2.2.4 / PHP 8.4 development environment.
  * Put it in this github repository.
 
+## Release notes
+| Version | Released    | Notes                             |
+|---------|-------------|-----------------------------------|
+| 1.0.0   | 26 NOV 2025 | Initial release (without version) |
+
 ## Installation instructions
 On your server there is a directory `modules_v4`.
 Create a subdirectory `wt-datafix-add-married-names` in there.
@@ -33,19 +38,22 @@ The end result looks like this:
      * `FixMissingMarriedNames.php`
      * `module.php`
 
+The files `composer.json`, `latest-version.txt` and this `README.md` are not required to be uploaded to your server, but won't do any harm.
+
 ## License
-Copyright (C) 2021 webtrees development team, (C) 2025 Bert Koorengevel.
+````
+Copyright (C) 2021 webtrees development team, (C) 2025-2026 Bert Koorengevel.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
+````
 ## Warranty
+````
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see https://www.gnu.org/licenses
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the GNU General Public License for more details:
+<https://www.gnu.org/licenses/gpl.html>
+````
